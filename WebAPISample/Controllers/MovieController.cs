@@ -24,7 +24,6 @@ namespace WebAPISample.Controllers
         {
             var movies = _context.Movies.ToList();
             return movies;
-            //return new string[] { "movie1 string", "movie2 string" };
         }
 
         // GET api/movie/5
@@ -33,29 +32,29 @@ namespace WebAPISample.Controllers
         {
             var movie = _context.Movies.FirstOrDefault(m => m.MovieId == id);
             return movie;
-            // Retrieve movie by id from db logic
-            //return "value";
         }
 
         // POST api/movie
         [HttpPost]
-        public void Post([FromBody]Movie value)
+        public void Post([FromBody]string value)
         {
-            // Create movie in db logic
+            
         }
 
         // PUT api/movie/5
         [HttpPut]
         public void Put(int id, [FromBody]string value)
         {
-            // Update movie in db logic
+
         }
 
         // DELETE api/movie/5
         [HttpDelete]
         public void Delete(int id)
         {
-            // Delete movie from db logic
+            var movie = _context.Movies.FirstOrDefault(m => m.MovieId == id);
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
         }
     }
 }
