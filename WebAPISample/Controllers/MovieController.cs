@@ -20,19 +20,20 @@ namespace WebAPISample.Controllers
         }
         // GET api/movie
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Movie> Get()
         {
             // Retrieve all movies from db logic
-            var movies = _context.Movies.Select(a => a.Title).ToList();
+            var movies = _context.Movies.ToList();
             return movies;
         }
 
         // GET api/movie/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Movie Get(int id)
         {
             // Retrieve movie by id from db logic
-            return "value";
+            var movie = _context.Movies.FirstOrDefault(a => a.MovieId == id);
+            return movie;
         }
 
         // POST api/movie
