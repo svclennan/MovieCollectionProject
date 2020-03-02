@@ -31,9 +31,7 @@ namespace WebAPISample.Controllers
         [HttpGet("{id}")]
         public Movie Get(int id)
         {
-            // Retrieve movie by id from db logic
-            var movie = _context.Movies.FirstOrDefault(a => a.MovieId == id);
-            return movie;
+            
         }
 
         // POST api/movie
@@ -41,12 +39,25 @@ namespace WebAPISample.Controllers
         public void Post([FromBody]Movie value)
         {
             // Create movie in db logic
+            Movie movie = new Movie()
+            {
+                Title = value.Title,
+                Genre = value.Genre,
+                Director = value.Director
+            };
+            _context.Add(movie);
+            _context.SaveChanges();
         }
 
         // PUT api/movie/5
         [HttpPut]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Movie value)
         {
+            var movie = _context.Movies.Where(a => a.MovieId == id).FirstOrDefault();
+            movie.Title = value.Title;
+            movie.Genre = value.Genre;
+            movie.Director = value.Director;
+            _context.SaveChanges();
             // Update movie in db logic
         }
 
@@ -54,7 +65,7 @@ namespace WebAPISample.Controllers
         [HttpDelete]
         public void Delete(int id)
         {
-            // Delete movie from db logic
+            
         }
     }
 }
