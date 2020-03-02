@@ -22,6 +22,7 @@ namespace WebAPISample.Controllers
         [HttpGet]
         public IEnumerable<Movie> Get()
         {
+            // Retrieve all movies from db logic
             var movies = _context.Movies.ToList();
             return movies;
         }
@@ -36,16 +37,29 @@ namespace WebAPISample.Controllers
 
         // POST api/movie
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Movie value)
         {
-            
+            // Create movie in db logic
+            Movie movie = new Movie()
+            {
+                Title = value.Title,
+                Genre = value.Genre,
+                Director = value.Director
+            };
+            _context.Add(movie);
+            _context.SaveChanges();
         }
 
         // PUT api/movie/5
         [HttpPut]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Movie value)
         {
-
+            var movie = _context.Movies.Where(a => a.MovieId == id).FirstOrDefault();
+            movie.Title = value.Title;
+            movie.Genre = value.Genre;
+            movie.Director = value.Director;
+            _context.SaveChanges();
+            // Update movie in db logic
         }
 
         // DELETE api/movie/5
