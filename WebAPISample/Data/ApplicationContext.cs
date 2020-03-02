@@ -14,10 +14,16 @@ namespace WebAPISample.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Seed data - needs migration
-            // modelBuilder.Entity<Movie>
-            //  .HasData(
-            //  new Movie{Fill All Properties}
-            //  );
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Movie>()
+             .HasData(
+             new Movie { MovieId = 1, Title = "The Departed", Genre = "Drama", Director = "Martin Scorsese" },
+             new Movie { MovieId = 2, Title = "The Dark Knight", Genre = "Drama", Director = "Christopher Nolan" },
+             new Movie { MovieId = 3, Title = "Inception", Genre = "Drama", Director = "Christopher Nolan" },
+             new Movie { MovieId = 4, Title = "Pineapple Express", Genre = "Comedy", Director = "David Gordon Green" },
+             new Movie { MovieId = 5, Title = "Die Hard", Genre = "Action", Director = "John McTiernan" }
+             );
             // View PlayerTracker project for example
         }
 
