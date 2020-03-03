@@ -45,7 +45,7 @@
                 var movieTable = "";
                 $.each(list, function (index, movie) {
                     movieTable += '<tr>';
-                    movieTable += '<td>' + '<a href="#" id="myBtn">' + movie.title + '</a>' + '</td>';
+                    movieTable += '<td>' + '<a onclick= stuff() href="#" id="myBtn">' + movie.title + '</a>' + '</td>';
                     movieTable += '<td>' + movie.genre + '</td>';
                     movieTable += '<td>' + movie.director + '</td>';
                     movieTable += '</tr>'
@@ -54,7 +54,19 @@
             }
         })
     }
+
+
+
     $(document).ready(makeTable);
     $('#my-form').submit(processForm);
     $('#my-form').submit(makeTable);
+    // $('#myBtn').on("click", "#myModal", function(){ 
+    //     $('#myModal').modal('show');
+    //     alert("hi");
+    // });
+    // $(document).ready(function() {
+    //     $('#myBtn').on("click", function(){ 
+    //         $('#myModal').modal('show')
+    //     });
+    // });
 })(jQuery); 
