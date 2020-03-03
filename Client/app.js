@@ -31,6 +31,7 @@
             success: resetTable
         })
     }
+
     function resetTable(data){
         if(data == null){
             var list = [];
@@ -45,14 +46,15 @@
         var movieTable = "";
         $.each(list, function (index, movie) {
             movieTable += '<tr>';
-            movieTable += '<td>' + '<a href = "#">' + movie.title + '</a></td>';
+            movieTable += '<td>' + '<a onclick= stuff() href="#" id="myBtn">' + movie.title + '</a></td>';
             movieTable += '<td>' + movie.genre + '</td>';
             movieTable += '<td>' + movie.director + '</td>';
             movieTable += '</tr>'
         });
         $('#movies').append(movieTable);
     }
+
+    $(document).ready(makeTable);
     $('#my-form').submit(processForm);
     $('#my-form').submit(makeTable);
-    $(document).ready(makeTable);
 })(jQuery); 
