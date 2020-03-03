@@ -1,11 +1,7 @@
 (function ($) {
     function processForm(e) {
         var dict = {
-<<<<<<< HEAD
-            Title : this["title"].value,
-=======
             Title: this["title"].value,
->>>>>>> 755c85ed220065292373d1dd01b843a67ed23f70
             Genre: this["genre"].value,
             Director: this["director"].value
         };
@@ -26,6 +22,7 @@
 
         e.preventDefault();
     }
+    
     function makeTable() {
         //convert to using .get instead of .ajax
         $.ajax({
