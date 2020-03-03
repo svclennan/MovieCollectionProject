@@ -22,6 +22,7 @@
 
         e.preventDefault();
     }
+    
     function makeTable() {
         $.ajax({
             url: 'https://localhost:44325/api/movie',
@@ -44,7 +45,11 @@
                 var movieTable = "";
                 $.each(list, function (index, movie) {
                     movieTable += '<tr>';
+<<<<<<< HEAD
                     movieTable += '<td>' + '<a type = "button" class = "btn" title "" data-container = "body" data-toggle="popover" data-placement="right" data-content="<form id="edit-form"><input type="text" name="title" placeholder="'+ movie.Title +'"/><input type="text" name="genre" placeholder="'+ movie.Genre +'" /><input type="text" name="director" placeholder="'+ movie.Director +'" /><button type="submit">Submit</button></form>" data-original-title = "Edit"' + movie.title + '</td>';
+=======
+                    movieTable += '<td>' + '<a href="#" id="myBtn">' + movie.title + '</a>' + '</td>';
+>>>>>>> 35f3d6bcf5e6ae45b2a87620cb7d62b7b575af70
                     movieTable += '<td>' + movie.genre + '</td>';
                     movieTable += '<td>' + movie.director + '</td>';
                     movieTable += '</tr>'
