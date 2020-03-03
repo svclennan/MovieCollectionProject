@@ -52,7 +52,7 @@
         });
         $('#movies').append(movieTable);
     }
-    $(document).ready(makeTable);
     $('#my-form').submit(processForm);
     $('#my-form').submit(makeTable);
+    $(document).ready(makeTable);
 })(jQuery); 
