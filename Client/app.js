@@ -25,7 +25,9 @@
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
             type: 'get',
-            success: resetTable
+            success: function(data){
+                resetTable(data);
+            }
         })
     }
 
