@@ -28,35 +28,29 @@
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
             type: 'get',
-            // success: function(data){
-            //     $('#movies').html("<tr><td>" + data[0].Title + "</td><td>" + data[0].Genre + "</td><td>" + data[0].Director + "</td></tr>");
-            // }
-            success: function (data) {
-                if(data == null){
-                    var list = [];
-                }
-                else if(data instanceof Array){
-                    list = data;
-                }
-                else{
-                    list = [data];
-                }
-                $('#movies tbody').remove();
-                var movieTable = "";
-                $.each(list, function (index, movie) {
-                    movieTable += '<tr>';
-<<<<<<< HEAD
-                    movieTable += '<td>' + '<a type = "button" class = "btn" title "" data-container = "body" data-toggle="popover" data-placement="right" data-content="<form id="edit-form"><input type="text" name="title" placeholder="'+ movie.Title +'"/><input type="text" name="genre" placeholder="'+ movie.Genre +'" /><input type="text" name="director" placeholder="'+ movie.Director +'" /><button type="submit">Submit</button></form>" data-original-title = "Edit"' + movie.title + '</td>';
-=======
-                    movieTable += '<td>' + '<a href="#" id="myBtn">' + movie.title + '</a>' + '</td>';
->>>>>>> 35f3d6bcf5e6ae45b2a87620cb7d62b7b575af70
-                    movieTable += '<td>' + movie.genre + '</td>';
-                    movieTable += '<td>' + movie.director + '</td>';
-                    movieTable += '</tr>'
-                });
-                $('#movies').append(movieTable);
-            }
+            success: resetTable
         })
+    }
+    function resetTable(data){
+        if(data == null){
+            var list = [];
+        }
+        else if(data instanceof Array){
+            list = data;
+        }
+        else{
+            list = [data];
+        }
+        $('#movies tbody').remove();
+        var movieTable = "";
+        $.each(list, function (index, movie) {
+            movieTable += '<tr>';
+            movieTable += '<td>' + '<a href = "#">' + movie.title + '</a></td>';
+            movieTable += '<td>' + movie.genre + '</td>';
+            movieTable += '<td>' + movie.director + '</td>';
+            movieTable += '</tr>'
+        });
+        $('#movies').append(movieTable);
     }
     $(document).ready(makeTable);
     $('#my-form').submit(processForm);
