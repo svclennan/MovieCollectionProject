@@ -1,11 +1,7 @@
 (function ($) {
     function processForm(e) {
         var dict = {
-<<<<<<< HEAD
-            Title : this["title"].value,
-=======
             Title: this["title"].value,
->>>>>>> 755c85ed220065292373d1dd01b843a67ed23f70
             Genre: this["genre"].value,
             Director: this["director"].value
         };
@@ -48,7 +44,7 @@
                 var movieTable = "";
                 $.each(list, function (index, movie) {
                     movieTable += '<tr>';
-                    movieTable += '<td>' + movie.title + '</td>';
+                    movieTable += '<td>' + '<a type = "button" class = "btn" title "" data-container = "body" data-toggle="popover" data-placement="right" data-content="<form id="edit-form"><input type="text" name="title" placeholder="'+ movie.Title +'"/><input type="text" name="genre" placeholder="'+ movie.Genre +'" /><input type="text" name="director" placeholder="'+ movie.Director +'" /><button type="submit">Submit</button></form>" data-original-title = "Edit"' + movie.title + '</td>';
                     movieTable += '<td>' + movie.genre + '</td>';
                     movieTable += '<td>' + movie.director + '</td>';
                     movieTable += '</tr>'
