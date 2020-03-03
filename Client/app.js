@@ -8,21 +8,18 @@
 
         $.ajax({
             url: 'https://localhost:44325/api/movie',
-            dataType: 'json',
+            dataType: 'text',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function (data, textStatus, jQxhr) {
-                $('#response pre').html(data);
-            },
-            error: function (jqXhr, textStatus, errorThrown) {
-                console.log(errorThrown);
+                makeTable();
+                clearForm();
             }
         });
-
         e.preventDefault();
     }
-    
+
     function makeTable() {
         $.ajax({
             url: 'https://localhost:44325/api/movie',
@@ -31,15 +28,15 @@
             success: resetTable
         })
     }
-    
-    function resetTable(data){
-        if(data == null){
+
+    function resetTable(data) {
+        if (data == null) {
             var list = [];
         }
-        else if(data instanceof Array){
+        else if (data instanceof Array) {
             list = data;
         }
-        else{
+        else {
             list = [data];
         }
         $('#movies tbody').remove();
@@ -53,24 +50,23 @@
         });
         $('#movies').append(movieTable);
     }
-    
-    function clearForm(){
+
+    function clearForm() {
         var form = document.getElementById("my-form");
         form.reset();
     }
 
     $(document).ready(makeTable);
     $('#my-form').submit(processForm);
-    $('#submit').on("click", makeTable);
-})(jQuery); 
+})(jQuery);
 
-function editMovie(id){
-    $.get(("https://localhost:44325/api/movie/"+id), function(data){
+function editMovie(id) {
+    $.get(("https://localhost:44325/api/movie/" + id), function (data) {
         changeDetails(data["title"], data["genre"], data["director"])
     });
 }
 
-function changeDetails(title, genre, director){
+function changeDetails(title, genre, director) {
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("close")[0];
     var btn = document.getElementById("myBtn");
@@ -83,15 +79,15 @@ function changeDetails(title, genre, director){
     titleInput.value = title;
     genreInput.value = genre;
     directorInput.value = director;
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     }
 
-    closeButton.onclick = function() {
+    closeButton.onclick = function () {
         modal.style.display = "none";
     }
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
