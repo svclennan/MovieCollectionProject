@@ -23,7 +23,6 @@
         e.preventDefault();
     }
     function makeTable() {
-        //convert to using .get instead of .ajax
         $.ajax({
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
@@ -32,8 +31,15 @@
             //     $('#movies').html("<tr><td>" + data[0].Title + "</td><td>" + data[0].Genre + "</td><td>" + data[0].Director + "</td></tr>");
             // }
             success: function (data) {
-                var list = data == null ? [] : (data instanceof Array ? data : [data]);
-
+                if(data == null){
+                    var list = [];
+                }
+                else if(data instanceof Array){
+                    list = data;
+                }
+                else{
+                    list = [data];
+                }
                 $('#movies tbody').remove();
                 var movieTable = "";
                 $.each(list, function (index, movie) {
