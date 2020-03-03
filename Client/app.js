@@ -56,5 +56,30 @@
 
     $(document).ready(makeTable);
     $('#my-form').submit(processForm);
-    $('#my-form').submit(makeTable);
+    $('#submit').on("click", makeTable)
 })(jQuery); 
+
+
+function stuff(title){
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+    var btn = document.getElementById("myBtn");
+    var closeButton = document.getElementById("closeButton");
+    var titleInput = document.getElementById("titleInput");
+
+    modal.style.display = "block";
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    closeButton.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
