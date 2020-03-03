@@ -1,8 +1,9 @@
 (function($){
     function processForm( e ){
         var dict = {
-        	Title : this["title"].value,
-        	Director: this["director"].value
+            Title : this["title"].value,
+            Genre: this["genre"].value,
+            Director: this["director"].value
         };
 
         $.ajax({
@@ -21,6 +22,5 @@
 
         e.preventDefault();
     }
-
     $('#my-form').submit( processForm );
 })(jQuery);

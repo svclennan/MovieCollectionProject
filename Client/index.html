@@ -12,10 +12,21 @@
 
 <form id="my-form">
     <input type="text" name="title" placeholder="Title" />
+    <input type="text" name="genre" placeholder="Genre" />
     <input type="text" name="director" placeholder="Director" />
-
     <button type="submit">Submit</button>
 </form>
+
+<br/>
+<table>
+    <thead>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Director</th>
+    </thead>
+    <tbody id="allMovies">
+    </tbody>
+</table>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="./app.js"></script>
