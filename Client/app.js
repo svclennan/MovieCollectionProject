@@ -45,7 +45,7 @@
                 var movieTable = "";
                 $.each(list, function (index, movie) {
                     movieTable += '<tr>';
-                    movieTable += '<td>' + movie.title + '</td>';
+                    movieTable += '<td>' + '<a href="#" id="myBtn">' + movie.title + '</a>' + '</td>';
                     movieTable += '<td>' + movie.genre + '</td>';
                     movieTable += '<td>' + movie.director + '</td>';
                     movieTable += '</tr>'
