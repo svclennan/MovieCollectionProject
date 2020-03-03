@@ -28,45 +28,33 @@
             url: 'https://localhost:44325/api/movie',
             dataType: 'json',
             type: 'get',
-            // success: function(data){
-            //     $('#movies').html("<tr><td>" + data[0].Title + "</td><td>" + data[0].Genre + "</td><td>" + data[0].Director + "</td></tr>");
-            // }
-            success: function (data) {
-                if(data == null){
-                    var list = [];
-                }
-                else if(data instanceof Array){
-                    list = data;
-                }
-                else{
-                    list = [data];
-                }
-                $('#movies tbody').remove();
-                var movieTable = "";
-                $.each(list, function (index, movie) {
-                    movieTable += '<tr>';
-                    movieTable += '<td>' + '<a onclick= stuff() href="#" id="myBtn">' + movie.title + '</a>' + '</td>';
-                    movieTable += '<td>' + movie.genre + '</td>';
-                    movieTable += '<td>' + movie.director + '</td>';
-                    movieTable += '</tr>'
-                });
-                $('#movies').append(movieTable);
-            }
+            success: resetTable
         })
     }
 
-
+    function resetTable(data){
+        if(data == null){
+            var list = [];
+        }
+        else if(data instanceof Array){
+            list = data;
+        }
+        else{
+            list = [data];
+        }
+        $('#movies tbody').remove();
+        var movieTable = "";
+        $.each(list, function (index, movie) {
+            movieTable += '<tr>';
+            movieTable += '<td>' + '<a onclick= stuff() href="#" id="myBtn">' + movie.title + '</a></td>';
+            movieTable += '<td>' + movie.genre + '</td>';
+            movieTable += '<td>' + movie.director + '</td>';
+            movieTable += '</tr>'
+        });
+        $('#movies').append(movieTable);
+    }
 
     $(document).ready(makeTable);
     $('#my-form').submit(processForm);
     $('#my-form').submit(makeTable);
-    // $('#myBtn').on("click", "#myModal", function(){ 
-    //     $('#myModal').modal('show');
-    //     alert("hi");
-    // });
-    // $(document).ready(function() {
-    //     $('#myBtn').on("click", function(){ 
-    //         $('#myModal').modal('show')
-    //     });
-    // });
 })(jQuery); 
