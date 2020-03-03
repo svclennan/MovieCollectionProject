@@ -18,7 +18,7 @@
     <input type="text" name="title" placeholder="Title" />
     <input type="text" name="genre" placeholder="Genre" />
     <input type="text" name="director" placeholder="Director" />
-    <button onclick = "makeTable" id="submit" type="submit">Submit</button>
+    <button id="submit" type="submit">Submit</button>
 </form>
 
 <br/>
@@ -44,13 +44,13 @@
         <div class="modal-body">
             <form id="my-edit-form">
                 <div class="form-group row">
-                    <input type="text" name="title" placeholder="Title" />
+                    <input type="text" name="title" id = "titleInput" placeholder="Title" />
                 </div>
                 <div class="form-group row">
-                    <input type="text" name="genre" placeholder="Genre" />
+                    <input type="text" name="genre" id = "genreInput" placeholder="Genre" />
                 </div>
                 <div class="form-group row">
-                    <input type="text" name="director" placeholder="Director" />
+                    <input type="text" name="director" id = "directorInput" placeholder="Director" />
                 </div>
                 <button type="submit">Submit</button>
             </form>
@@ -67,28 +67,28 @@
 <script type="text/javascript" src="./app.js"></script>
 
 <script>
-    // Get the modal
-    function stuff(){
-        var modal = document.getElementById("myModal");
-        var span = document.getElementsByClassName("close")[0];
-        var btn = document.getElementById("myBtn");
-        var closeButton = document.getElementById("closeButton");
-        modal.style.display = "block";
+    //  Get the modal
+    // function stuff(title, genre, direct){
+    //     var modal = document.getElementById("myModal");
+    //     var span = document.getElementsByClassName("close")[0];
+    //     var btn = document.getElementById("myBtn");
+    //     var closeButton = document.getElementById("closeButton");
+    //     modal.style.display = "block";
 
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
+    //     span.onclick = function() {
+    //         modal.style.display = "none";
+    //     }
 
-        closeButton.onclick = function() {
-            modal.style.display = "none";
-        }
+    //     closeButton.onclick = function() {
+    //         modal.style.display = "none";
+    //     }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    }
+    //     window.onclick = function(event) {
+    //         if (event.target == modal) {
+    //             modal.style.display = "none";
+    //         }
+    //     }
+    // }
 </script>
 </body>
 </html>
