@@ -58,6 +58,7 @@
             Title: this["title"].value,
             Genre: this["genre"].value,
             Director: this["director"].value,
+            ImageUrl: this["imageUrl"].value,
             Id: this["movieId"].value
         };
 
@@ -89,29 +90,31 @@
 
 function editMovie(id){
     $.get(("https://localhost:44325/api/movie/"+id), function(data){
-        changeDetails(data["title"], data["genre"], data["director"], data["movieId"])
+        changeDetails(data["title"], data["genre"], data["director"], data["imageUrl"], data["movieId"])
     });
 }
 
 //This whole function is for the modal functionality
-function changeDetails(title, genre, director, id){
+function changeDetails(title, genre, director, image, id){
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("close")[0];
     var closeButton = document.getElementById("closeButton");
-    var modalTitle = document.getElementById("modalTitle");
     var saveButton = document.getElementById("submitButton");
     var titleInput = document.getElementById("titleInput");
     var genreInput = document.getElementById("genreInput");
     var directorInput = document.getElementById("directorInput");
+    var movieImage = document.getElementById("movieImage");
+    var imageInput = document.getElementById("imageInput");
     var idInput = document.getElementById("idInput");
 
     modal.style.display = "block";
 
-    modalTitle.innerHTML = "Edit " + title;
+    movieImage.src = image;
     idInput.value = id;
     titleInput.value = title;
     genreInput.value = genre;
     directorInput.value = director;
+    imageInput.value = image;
 
     saveButton.onclick = function () {
         modal.style.display = "none";
@@ -124,10 +127,4 @@ function changeDetails(title, genre, director, id){
     closeButton.onclick = function () {
         modal.style.display = "none";
     }
-
-    // window.onclick = function (event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
 }

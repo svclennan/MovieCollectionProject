@@ -8,110 +8,86 @@
     <link rel="stylesheet" href="bootstrap.css" type="text/css" >
     <link rel="stylesheet" href="site.css" type="text/css" >
 </head>
-<body>
 
-<h1 class="text-center">Movie Database</h1>
-<div id="response">
-    <pre></pre>
-</div>
-
-<div class="formMargin">
-    <form id="my-form" class="form-inline">
-        <legend>Add Movie</legend>
-        <div>
-            <input class="form-control mb-2 mr-sm-2" type="text" name="title" placeholder="Title" />
+    <body>
+        <h1 class="text-center">Movie Database</h1>
+        <div id="response">
+            <pre></pre>
         </div>
-        <div class="">
-            <input class="form-control mb-2 mr-sm-2" type="text" name="genre" placeholder="Genre" />
-        </div>
-        <div class="">
-            <input class="form-control mb-2 mr-sm-2" type="text" name="director" placeholder="Director" />
-        </div>
-        <div class="">
-            <button class="btn btn-primary mb-2" id="submit" type="submit">Submit</button>
-        </div>
-    </form>
-</div>
 
-<br/>
-
-<table id="movies" class="table table-hover table-sm">
-    <thead class="table-dark">
-        <th>Title</th>
-        <th>Genre</th>
-        <th>Director</th>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-
-
-
-<div class="modal" id="myModal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle">Edit</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body formMargin">
-            <form id="my-edit-form">
-                <fieldset>
-                    <div class="form-group row" style="display: none;">
-                        <input class="form-control mb-2 mr-sm-2" type="text" name="movieId" id = "idInput" placeholder="Id" />
-                    </div>
-                    <div class="form-group row">
-                        <input class="form-control mb-2 mr-sm-2" type="text" name="title" id = "titleInput" placeholder="Title" />
-                    </div>
-                    <div class="form-group row">
-                        <input class="form-control mb-2 mr-sm-2" type="text" name="genre" id = "genreInput" placeholder="Genre" />
-                    </div>
-                    <div class="form-group row">
-                        <input class="form-control mb-2 mr-sm-2" type="text" name="director" id = "directorInput" placeholder="Director" />
-                    </div>
-                    <div class="form-group row">
-                        <button class="btn btn-outline-success" id="submitButton" type="submit">Save Changes</button>
-                    </div>
-                </fieldset>
+        <div class="formMargin">
+            <form id="my-form" class="form-inline">
+                <legend>Add Movie</legend>
+                <div>
+                    <input class="form-control mb-2 mr-sm-2" type="text" name="title" placeholder="Title" />
+                </div>
+                <div class="">
+                    <input class="form-control mb-2 mr-sm-2" type="text" name="genre" placeholder="Genre" />
+                </div>
+                <div class="">
+                    <input class="form-control mb-2 mr-sm-2" type="text" name="director" placeholder="Director" />
+                </div>
+                <div class="">
+                    <button class="btn btn-primary mb-2" id="submit" type="submit">Submit</button>
+                </div>
             </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Close</button>
+
+        <br/>
+        <table id="movies" class="table table-hover table-sm">
+            <thead class="table-dark">
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Director</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Movie Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body formMargin text-center">
+                    <img src="#" id="movieImage" class="col-sm-4"/>
+                    <hr/>
+                    <form id="my-edit-form">
+                        <fieldset>
+                            <div class="form-group row" style="display: none;">
+                                <input class="form-control mb-2 mr-sm-2" type="text" name="movieId" id="idInput" placeholder="Id" />
+                            </div>
+                            <div class="form-group row">
+                                <input class="form-control mb-2 mr-sm-2" type="text" name="title" id="titleInput" placeholder="Title" />
+                            </div>
+                            <div class="form-group row">
+                                <input class="form-control mb-2 mr-sm-2" type="text" name="genre" id="genreInput" placeholder="Genre" />
+                            </div>
+                            <div class="form-group row">
+                                <input class="form-control mb-2 mr-sm-2" type="text" name="director" id="directorInput" placeholder="Director" />
+                            </div>
+                            <div class="form-group row">
+                                <input class="form-control mb-2 mr-sm-2" type="text" name="imageUrl" id="imageInput" placeholder="Image Url" />
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-outline-success" id="submitButton" type="submit">Save Changes</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Close</button>
+                </div>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="./app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./app.js"></script>
 
-<script>
-    // Get the modal
-    // function stuff(){
-    //     var modal = document.getElementById("myModal");
-    //     var span = document.getElementsByClassName("close")[0];
-    //     var btn = document.getElementById("myBtn");
-    //     var closeButton = document.getElementById("closeButton");
-    //     var titleInput = document.getElementById("titleInput");
-
-    //     modal.style.display = "block";
-
-    //     span.onclick = function() {
-    //         modal.style.display = "none";
-    //     }
-
-    //     closeButton.onclick = function() {
-    //         modal.style.display = "none";
-    //     }
-
-    //     window.onclick = function(event) {
-    //         if (event.target == modal) {
-    //             modal.style.display = "none";
-    //         }
-    //     }
-    // }
-</script>
-</body>
+    </body>
 </html>

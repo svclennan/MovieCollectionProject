@@ -59,6 +59,7 @@ namespace WebAPISample.Controllers
             movie.Title = value.Title;
             movie.Genre = value.Genre;
             movie.Director = value.Director;
+            movie.ImageUrl = value.ImageUrl;
             _context.SaveChanges();
             // Update movie in db logic
         }
