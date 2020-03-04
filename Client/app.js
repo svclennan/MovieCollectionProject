@@ -53,23 +53,25 @@
         $('#movies').append(movieTable);
     }
     
-    function submitEditChanges(){
+    function submitEditChanges(e){
         var dict = {
-            MovieId: this["movieId"].value,
-            Title: this["titleInput"].value,
-            Genre: this["genreInput"].value,
-            Director: this["directorInput"].value
+            Title: this["title"].value,
+            Genre: this["genre"].value,
+            Director: this["director"].value,
+            Id: this["movieId"].value
         };
 
         $.ajax({
-            url: 'https://localhost:44325/api/movie/',
-            type: 'PUT',
+            url: 'https://localhost:44325/api/movie?id=' + dict.Id,
+            dataType: 'text',
+            type: 'put',
             contentType: 'application/json',
             data: JSON.stringify(dict),
             success: function () {
                 makeTable();
             }
         });
+        e.preventDefault();
     }
 
     function clearForm(){
