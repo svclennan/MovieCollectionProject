@@ -55,23 +55,19 @@
     
     function submitEditChanges(){
         var dict = {
-            Title: this["title"].value,
-            Genre: this["genre"].value,
-            Director: this["director"].value,
-            MovieId: this["movieId"].value
+            MovieId: this["movieId"].value,
+            Title: this["titleInput"].value,
+            Genre: this["genreInput"].value,
+            Director: this["directorInput"].value
         };
 
         $.ajax({
-            url: 'https://localhost:44325/api/movie/?id='+dict.MovieId,
-            dataType: 'text',
-            type: 'put',
+            url: 'https://localhost:44325/api/movie/',
+            type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(dict),
-            success: function (data, textStatus, jQxhr) {
-                $('#response pre').html(data);
-            },
-            error: function (jqXhr, textStatus, errorThrown) {
-                console.log(errorThrown);
+            success: function () {
+                makeTable();
             }
         });
     }
@@ -83,7 +79,6 @@
 
     $(document).ready(makeTable);
     $('#my-form').submit(processForm);
-    //$('#submit').on("click", makeTable);
     $('#my-edit-form').submit(submitEditChanges);
 })(jQuery); 
 
