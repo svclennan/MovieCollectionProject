@@ -51,16 +51,16 @@
         $('#movies').append(movieTable);
     }
     
-    function submitEditChanges(){
+    function submitEditChanges(e){
         var dict = {
             Title: this["title"].value,
             Genre: this["genre"].value,
             Director: this["director"].value,
-            MovieId: this["movieId"].value
+            Id: this["movieId"].value
         };
 
         $.ajax({
-            url: 'https://localhost:44325/api/movie/?id='+dict.MovieId,
+            url: 'https://localhost:44325/api/movie?id=' + dict.Id,
             dataType: 'text',
             type: 'put',
             contentType: 'application/json',
@@ -72,6 +72,7 @@
                 console.log(errorThrown);
             }
         });
+        e.preventDefault();
     }
 
     function clearForm(){
@@ -81,7 +82,6 @@
 
     $(document).ready(makeTable);
     $('#my-form').submit(processForm);
-    //$('#submit').on("click", makeTable);
     $('#my-edit-form').submit(submitEditChanges);
 })(jQuery); 
 

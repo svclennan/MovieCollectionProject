@@ -53,9 +53,9 @@ namespace WebAPISample.Controllers
 
         // PUT api/movie/5
         [HttpPut]
-        public void Put([FromBody]Movie value)
+        public void Put(int id, [FromBody]Movie value)
         {
-            var movie = _context.Movies.Where(a => a.MovieId == value.MovieId).FirstOrDefault();
+            var movie = _context.Movies.Where(a => a.MovieId == id).FirstOrDefault();
             movie.Title = value.Title;
             movie.Genre = value.Genre;
             movie.Director = value.Director;
