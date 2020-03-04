@@ -6,23 +6,36 @@
 
     <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="bootstrap.css" type="text/css" >
-    <!-- <link rel="stylesheet" href="site.css" type="text/css" > -->
+    <link rel="stylesheet" href="site.css" type="text/css" >
 </head>
 <body>
 
+<h1 class="text-center">Movie Database</h1>
 <div id="response">
     <pre></pre>
 </div>
 
-<form id="my-form">
-    <input type="text" name="title" placeholder="Title" />
-    <input type="text" name="genre" placeholder="Genre" />
-    <input type="text" name="director" placeholder="Director" />
-    <button id="submit" type="submit">Submit</button>
-</form>
+<div class="formMargin">
+    <form id="my-form" class="form-inline">
+        <legend>Add Movie</legend>
+        <div>
+            <input class="form-control mb-2 mr-sm-2" type="text" name="title" placeholder="Title" />
+        </div>
+        <div class="">
+            <input class="form-control mb-2 mr-sm-2" type="text" name="genre" placeholder="Genre" />
+        </div>
+        <div class="">
+            <input class="form-control mb-2 mr-sm-2" type="text" name="director" placeholder="Director" />
+        </div>
+        <div class="">
+            <button class="btn btn-primary mb-2" id="submit" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
 
 <br/>
-<table id="movies" class="table table-hover">
+
+<table id="movies" class="table table-hover table-sm">
     <thead class="table-dark">
         <th>Title</th>
         <th>Genre</th>
@@ -32,30 +45,36 @@
     </tbody>
 </table>
 
+
+
 <div class="modal" id="myModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit</h5>
+          <h5 class="modal-title" id="modalTitle">Edit</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body formMargin">
             <form id="my-edit-form">
-                <div class="form-group row">
-                    <input type="text" name="movieId" id = "idInput" placeholder="Id" />
-                </div>
-                <div class="form-group row">
-                    <input type="text" name="title" id = "titleInput" placeholder="Title" />
-                </div>
-                <div class="form-group row">
-                    <input type="text" name="genre" id = "genreInput" placeholder="Genre" />
-                </div>
-                <div class="form-group row">
-                    <input type="text" name="director" id = "directorInput" placeholder="Director" />
-                </div>
-                <button class="btn btn-primary" id="submit" type="submit">Save Changes</button>
+                <fieldset>
+                    <div class="form-group row" style="display: none;">
+                        <input class="form-control mb-2 mr-sm-2" type="text" name="movieId" id = "idInput" placeholder="Id" />
+                    </div>
+                    <div class="form-group row">
+                        <input class="form-control mb-2 mr-sm-2" type="text" name="title" id = "titleInput" placeholder="Title" />
+                    </div>
+                    <div class="form-group row">
+                        <input class="form-control mb-2 mr-sm-2" type="text" name="genre" id = "genreInput" placeholder="Genre" />
+                    </div>
+                    <div class="form-group row">
+                        <input class="form-control mb-2 mr-sm-2" type="text" name="director" id = "directorInput" placeholder="Director" />
+                    </div>
+                    <div class="form-group row">
+                        <button class="btn btn-outline-success" id="submitButton" type="submit">Save Changes</button>
+                    </div>
+                </fieldset>
             </form>
         </div>
         <div class="modal-footer">

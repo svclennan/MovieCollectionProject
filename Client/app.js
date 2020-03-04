@@ -65,8 +65,8 @@
             type: 'put',
             contentType: 'application/json',
             data: JSON.stringify(dict),
-            success: function (data, textStatus, jQxhr) {
-                $('#response pre').html(data);
+            success: function () {
+                makeTable();
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 console.log(errorThrown);
@@ -91,20 +91,30 @@ function editMovie(id){
     });
 }
 
+//This whole function is for the modal functionality
 function changeDetails(title, genre, director, id){
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("close")[0];
     var closeButton = document.getElementById("closeButton");
+    var modalTitle = document.getElementById("modalTitle");
+    var saveButton = document.getElementById("submitButton");
     var titleInput = document.getElementById("titleInput");
     var genreInput = document.getElementById("genreInput");
     var directorInput = document.getElementById("directorInput");
     var idInput = document.getElementById("idInput");
+
     modal.style.display = "block";
 
+    modalTitle.innerHTML = "Edit " + title;
     idInput.value = id;
     titleInput.value = title;
     genreInput.value = genre;
     directorInput.value = director;
+
+    saveButton.onclick = function () {
+        modal.style.display = "none";
+    }
+
     span.onclick = function () {
         modal.style.display = "none";
     }
@@ -113,9 +123,9 @@ function changeDetails(title, genre, director, id){
         modal.style.display = "none";
     }
 
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    // window.onclick = function (event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
 }
