@@ -106,7 +106,6 @@ function changeDetails(title, genre, director, image, id){
     var movieImage = document.getElementById("movieImage");
     var imageInput = document.getElementById("imageInput");
     var idInput = document.getElementById("idInput");
-
     modal.style.display = "block";
 
     movieImage.src = image;
